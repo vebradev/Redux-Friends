@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchFriends } from "../actions/actionCreators";
+import { fetchFriends, login } from "../actions/actionCreators";
 import Friend from "./Friend";
 
 class Friends extends React.Component {
   componentDidMount() {
     this.props.fetchFriends();
+    this.props.login();
   }
 
   render() {
@@ -30,5 +31,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchFriends }
+  { fetchFriends, login }
 )(Friends);
