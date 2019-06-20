@@ -21,3 +21,11 @@ export const login = (userCredential) => (dispatch) => {
 			dispatch({ type: types.LOGIN_FAIL, payload: err.message });
 		});
 };
+
+export const addFriend = (friend) => (dispatch) => {
+	dispatch({ type: types.ADD_FRIEND });
+	axiosAuth()
+		.post('http://localhost:5000/api/friends', friend)
+		.then((res) => dispatch({ type: types.ADD_FRIEND_SUCCESS, payload: res.data }))
+		.catch((err) => dispatch({ type: types.ADD_FRIEND_FAIL, payload: err.message }));
+};
