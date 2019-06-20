@@ -10,6 +10,10 @@ export class Login extends React.Component {
     const username = this.usernameRef.current.value;
     const password = this.passwordRef.current.value;
     this.props.login({ username, password });
+
+    if (localStorage.getItem("token")) {
+      this.props.history.push("/friends");
+    }
   };
 
   render() {
