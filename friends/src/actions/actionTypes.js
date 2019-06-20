@@ -1,0 +1,1 @@
+export const FETCH_FRIENDS = 'FETCH_FRIENDS';

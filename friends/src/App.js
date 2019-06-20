@@ -1,12 +1,15 @@
 import React from 'react';
+import Friends from './components/Friends';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h2>Hi!</h2>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+          <Friends />
+      </div>
+    );
+  }
 }
 
 export default App;
