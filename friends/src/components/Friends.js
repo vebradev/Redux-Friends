@@ -13,9 +13,7 @@ class Friends extends React.Component {
     return (
       <div>
         {this.props.friends.map(friend => {
-          return (
-            <Friend key={friend.id} friend={friend} />
-          );
+          return (<Friend key={friend.id} friend={friend} />);
         })}
       </div>
     );
@@ -23,9 +21,10 @@ class Friends extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.friendsReducer);
   return {
-    friends: state.friendsReducer
+    friends: state.friendsReducer.friends,
+    isLoading: state.friendsReducer.isLoading,
+    error: state.friendsReducer.error
   };
 };
 

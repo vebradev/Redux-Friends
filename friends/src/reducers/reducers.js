@@ -1,9 +1,32 @@
-import { FETCH_FRIENDS } from "../actions/actionTypes";
+import * as types from "../actions/actionTypes";
 
-export const friendsReducer = (state = [], action) => {
+const initialState = {
+  friends: [],
+  isLoading: false,
+  error: ""
+};
+
+export const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_FRIENDS:
-      return action.payload;
+    case types.FETCH_FRIENDS:
+      return {
+        ...state,
+        isLoading: true,
+        error: ""
+      };
+    case types.FETCH_SUCCESS:
+      return {
+        ...state,
+        friends: action.payload,
+        isLoading: false,
+        error: ""
+      };
+    case types.FETCH_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
     default:
       return state;
   }
